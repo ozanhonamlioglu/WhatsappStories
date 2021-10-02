@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD0AAADF2704A2EE004C1C17 /* ScreenRelated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AAADE2704A2EE004C1C17 /* ScreenRelated.swift */; };
 		BD795E8D26FC91F200684C3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD795E8C26FC91F200684C3F /* AppDelegate.swift */; };
 		BD795E8F26FC91F200684C3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD795E8E26FC91F200684C3F /* SceneDelegate.swift */; };
 		BD795E9126FC91F200684C3F /* StatusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD795E9026FC91F200684C3F /* StatusController.swift */; };
@@ -17,9 +18,11 @@
 		BD795EA626FCD4FF00684C3F /* StatusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD795EA526FCD4FF00684C3F /* StatusModels.swift */; };
 		BD795EAB26FCD5B100684C3F /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD795EA926FCD5B100684C3F /* StatusTableViewCell.swift */; };
 		BD795EAC26FCD5B100684C3F /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD795EAA26FCD5B100684C3F /* StatusTableViewCell.xib */; };
+		BDA88EFA2705A9E4003C68EA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = BDA88EF92705A9E4003C68EA /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD0AAADE2704A2EE004C1C17 /* ScreenRelated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRelated.swift; sourceTree = "<group>"; };
 		BD795E8926FC91F200684C3F /* WhatsappStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsappStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD795E8C26FC91F200684C3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD795E8E26FC91F200684C3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA88EFA2705A9E4003C68EA /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				BD795EA226FC99AD00684C3F /* FakeDatas.swift */,
+				BD0AAADE2704A2EE004C1C17 /* ScreenRelated.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -127,6 +132,9 @@
 			dependencies = (
 			);
 			name = WhatsappStories;
+			packageProductDependencies = (
+				BDA88EF92705A9E4003C68EA /* Kingfisher */,
+			);
 			productName = WhatsappStories;
 			productReference = BD795E8926FC91F200684C3F /* WhatsappStories.app */;
 			productType = "com.apple.product-type.application";
@@ -154,6 +162,9 @@
 				Base,
 			);
 			mainGroup = BD795E8026FC91F200684C3F;
+			packageReferences = (
+				BDA88EF82705A9E4003C68EA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = BD795E8A26FC91F200684C3F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD795E9126FC91F200684C3F /* StatusController.swift in Sources */,
+				BD0AAADF2704A2EE004C1C17 /* ScreenRelated.swift in Sources */,
 				BD795E8D26FC91F200684C3F /* AppDelegate.swift in Sources */,
 				BD795EA626FCD4FF00684C3F /* StatusModels.swift in Sources */,
 				BD795EAB26FCD5B100684C3F /* StatusTableViewCell.swift in Sources */,
@@ -389,6 +401,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BDA88EF82705A9E4003C68EA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BDA88EF92705A9E4003C68EA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BDA88EF82705A9E4003C68EA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD795E8126FC91F200684C3F /* Project object */;
 }

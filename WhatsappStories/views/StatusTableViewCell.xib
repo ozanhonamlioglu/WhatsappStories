@@ -27,10 +27,22 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20X-4I-nbn">
                                                 <rect key="frame" x="1" y="1" width="78" height="78"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gnv-c0-Jil">
+                                                        <rect key="frame" x="2" y="2" width="74" height="74"/>
+                                                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="74" id="0XH-m7-kUG"/>
+                                                            <constraint firstAttribute="width" constant="74" id="WiO-Sa-5Ga"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="78" id="46p-nz-xll"/>
                                                     <constraint firstAttribute="width" constant="78" id="v79-xH-i6S"/>
+                                                    <constraint firstItem="Gnv-c0-Jil" firstAttribute="centerY" secondItem="20X-4I-nbn" secondAttribute="centerY" id="wWy-9g-qde"/>
+                                                    <constraint firstItem="Gnv-c0-Jil" firstAttribute="centerX" secondItem="20X-4I-nbn" secondAttribute="centerX" id="ydc-71-gyf"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -97,8 +109,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="nameLabel" destination="TPT-ek-feN" id="Yqd-l4-KAa"/>
                 <outlet property="profilePicture1" destination="o9c-Ew-afK" id="b48-WR-tVc"/>
                 <outlet property="profilePicture2" destination="20X-4I-nbn" id="CsK-vI-26h"/>
+                <outlet property="profilePicture3" destination="Gnv-c0-Jil" id="Zzz-hw-n16"/>
+                <outlet property="timeLabel" destination="P2M-da-aCf" id="rYD-8f-XCV"/>
             </connections>
             <point key="canvasLocation" x="237.68115942028987" y="150.66964285714286"/>
         </tableViewCell>
