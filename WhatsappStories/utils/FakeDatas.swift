@@ -6,9 +6,11 @@
 //
 
 var status: [BaseStatus] = [
-    BaseStatus(name: "Andy Mehalic", date: "10h ago", profilePic: "https://picsum.photos/300/300", id: "abc", seen: false),
-    BaseStatus(name: "Artur Kedzior", date: "12h ago", profilePic: "https://picsum.photos/301/300", id: "xyz", seen: false),
-    BaseStatus(name: "Ozan Honamlioglu", date: "a minute ago", profilePic: "https://picsum.photos/300/301", id: "ozz", seen: true)
+    BaseStatus(name: "John Doe", date: "10h ago", profilePic: "https://picsum.photos/300/300", id: "abc", seen: false),
+    BaseStatus(name: "Harry", date: "12h ago", profilePic: "https://picsum.photos/301/300", id: "xyz", seen: false),
+    BaseStatus(name: "Oliver", date: "a minute ago", profilePic: "https://picsum.photos/300/301", id: "zfb", seen: true),
+    BaseStatus(name: "Jack", date: "a minute ago", profilePic: "https://picsum.photos/302/300", id: "qweg", seen: true),
+    BaseStatus(name: "Jacob", date: "a minute ago", profilePic: "https://picsum.photos/300/302", id: "fhjk", seen: true)
 ]
 
 func getNotSeen() -> [BaseStatus] {

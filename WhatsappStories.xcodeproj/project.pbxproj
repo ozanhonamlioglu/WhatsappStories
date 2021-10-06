@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0AAD9B270C62F200EE7B96 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0AAD9A270C62F200EE7B96 /* UIView+Extension.swift */; };
 		BD0AAADF2704A2EE004C1C17 /* ScreenRelated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0AAADE2704A2EE004C1C17 /* ScreenRelated.swift */; };
 		BD795E8D26FC91F200684C3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD795E8C26FC91F200684C3F /* AppDelegate.swift */; };
 		BD795E8F26FC91F200684C3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD795E8E26FC91F200684C3F /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0AAD9A270C62F200EE7B96 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BD0AAADE2704A2EE004C1C17 /* ScreenRelated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenRelated.swift; sourceTree = "<group>"; };
 		BD795E8926FC91F200684C3F /* WhatsappStories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsappStories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD795E8C26FC91F200684C3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				BD795EA226FC99AD00684C3F /* FakeDatas.swift */,
 				BD0AAADE2704A2EE004C1C17 /* ScreenRelated.swift */,
+				4D0AAD9A270C62F200EE7B96 /* UIView+Extension.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				BD795E9126FC91F200684C3F /* StatusController.swift in Sources */,
 				BD0AAADF2704A2EE004C1C17 /* ScreenRelated.swift in Sources */,
+				4D0AAD9B270C62F200EE7B96 /* UIView+Extension.swift in Sources */,
 				BD795E8D26FC91F200684C3F /* AppDelegate.swift in Sources */,
 				BD795EA626FCD4FF00684C3F /* StatusModels.swift in Sources */,
 				BD795EAB26FCD5B100684C3F /* StatusTableViewCell.swift in Sources */,

@@ -9,7 +9,26 @@ import UIKit
 
 fileprivate let statusCellId = "statusCellId"
 
+enum PanDirection {
+    case up, down, inactive
+}
+
+var unChangedWStartPoint = UIScreen.main.bounds.width * 3
+var unChangedHStartPoint = UIScreen.main.bounds.height
+
+var wStartPoint: CGFloat = unChangedWStartPoint
+var hStartPoint: CGFloat = unChangedHStartPoint
+
+// steps
+let stepsToOval: CGFloat = 35.0
+var stepsForWidth: CGFloat = (wStartPoint - UIScreen.main.bounds.width) / stepsToOval
+var stepsForHeight: CGFloat = (hStartPoint - UIScreen.main.bounds.width) / stepsToOval
+
 class StatusController: UITableViewController {
+    
+    var startPosition: CGFloat = 0.0
+    var panDirection: PanDirection = .inactive
+    var initialAlpha: CGFloat = 1
     
     lazy var searchBar: UISearchController = {
         var search = UISearchController(searchResultsController: nil)
@@ -18,8 +37,26 @@ class StatusController: UITableViewController {
         return search
     }()
     
+    lazy var presentationViewBackGround: UIView = {
+        let vw = UIView()
+        return vw
+    }()
+    
     lazy var presentationView: UIView = {
         let pv = UIView()
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "story")
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        pv.addSubview(imageView)
+        pv.clipsToBounds = true
+        
+        NSLayoutConstraint.activate([
+            imageView.centerYAnchor.constraint(equalTo: pv.centerYAnchor),
+            imageView.centerXAnchor.constraint(equalTo: pv.centerXAnchor),
+        ])
+        
         return pv
     }()
 
@@ -73,14 +110,22 @@ class StatusController: UITableViewController {
         let yPosition = cell.frame.origin.y - tableView.bounds.minY + CGFloat(startSize / 2)
         let xPosition = cell.frame.origin.x + CGFloat(startSize / 2)
         
+        presentationViewBackGround.removeFromSuperview()
         presentationView.removeFromSuperview()
+        
+        tabBarController?.view.addSubview(presentationViewBackGround)
         tabBarController?.view.addSubview(presentationView)
+        
+        presentationViewBackGround.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         presentationView.frame = CGRect(x: Int(xPosition), y: Int(yPosition), width: Int(startSize), height: Int(startSize))
         presentationView.backgroundColor = .red
         
         UIView.animate(withDuration: 0.2) {
             self.presentationView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        } completion: { status in
+            self.presentationViewBackGround.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: self.initialAlpha)
         }
+
     }
     
     // MARK: - TABLE HANDLERS
@@ -150,6 +195,7 @@ class StatusController: UITableViewController {
             presentStatus(cell: cell)
             break
         case 1:
+            presentStatus(cell: cell)
             break
         default:
             break
@@ -175,7 +221,62 @@ extension StatusController {
         }
         
         let translations = recognizer.translation(in: tabBarController?.view)
+        print(translations.x)
         
+        switch recognizer.state {
+        case .began:
+            break
+        case .ended:
+            releaseTouch(y: translations.y)
+            break
+        case .changed:
+            setPanDirection(x: translations.x, y: translations.y)
+            startPosition = translations.y
+            break
+        default:
+            break
+        }
+        
+    }
+    
+    private func setPanDirection(x: CGFloat, y: CGFloat) {
+        if(y > startPosition) {
+            panDirection = .down
+            
+            if(wStartPoint > UIScreen.main.bounds.width + 1) {
+                wStartPoint -= stepsForWidth
+                hStartPoint -= stepsForHeight
+                initialAlpha -= 0.01
+                
+                presentationView.ovalToCircle(wStartPoint, hStartPoint, false)
+                presentationViewBackGround.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: initialAlpha)
+            } else {
+                
+            }
+            
+            
+        } else {
+            panDirection = .up
+            
+            if(hStartPoint <= UIScreen.main.bounds.height) {
+                wStartPoint += stepsForWidth
+                hStartPoint += stepsForHeight
+                initialAlpha += 0.01
+                
+                presentationView.ovalToCircle(wStartPoint, hStartPoint, false)
+                presentationViewBackGround.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: initialAlpha)
+            }
+            
+        }
+    }
+    
+    private func releaseTouch(y: CGFloat) {
+        if(wStartPoint >= 50) {
+            self.presentationView.ovalToCircle(unChangedWStartPoint, unChangedHStartPoint, true)
+            wStartPoint = unChangedWStartPoint
+            hStartPoint = unChangedHStartPoint
+            initialAlpha = 1
+        }
     }
     
 }
